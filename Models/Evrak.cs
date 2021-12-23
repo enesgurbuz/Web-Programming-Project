@@ -12,6 +12,7 @@ namespace EvrakYonetimSistemi.Models
 {
     public class Evrak
     {
+        
         [Key]
 
         public Guid EvrakID { get; set; }
