@@ -1,0 +1,28 @@
+﻿@using EvrakYonetimSistemi.Models
+@model List<Evrak>
+
+
+<br />
+<br />
+<h2>@ViewBag.brm Tipi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th> ID</th>
+        <th> AD</th>
+        <th> KONU</th>
+        <th> TARİH</th>
+
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.EvrakID</td>
+            <td>@x.Adi</td>
+            <td>@x.Konu</td>
+            <td>@x.Tarih</td>
+
+        </tr>
+    }
+</table>
+<a href="/EvrakTipi/Index/ " class="btn btn-success " style="background-color: black">GERİ</a>
