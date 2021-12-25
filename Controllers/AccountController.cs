@@ -40,6 +40,7 @@ namespace EvrakYonetimSistemi.Controllers
             }
             return RedirectToAction("Login");
         }
+        
         public async Task<IActionResult> logout()
         {
             await _signInManager.SignOutAsync();
