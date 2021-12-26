@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Evrak Layout</title>
+    <link href="~/userTemplate/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/userTemplate/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- Toastr style -->
+    <link href="~/userTemplate/css/plugins/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="~/userTemplate/css/animate.css" rel="stylesheet" />
+    <link href="~/userTemplate/css/style.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+
+</head>
+
+<body>
+
+    <div id="wrapper" class="i18_links">
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <img alt="image" class="rounded-circle" src="~/userTemplate/img/profile_small.jpg" />
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold">Ahmet Enes</span>
+                                <span class="text-muted text-xs block">Öğrenci <b class="caret"></b></span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            IN+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Evrak")"><i class="fa fa-pie-chart"></i> <span class="nav-label"  data-i18n="Evrak">Evrak</span>  </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","EvrakTipi")"><i class="fa fa-pie-chart"></i> <span class="nav-label"  data-i18n="EvrakTipi">EvrakTipi</span>  </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Kullanici")"><i class="fa fa-pie-chart"></i> <span class="nav-label"  data-i18n="Kullanicilar">Kullanici</span>  </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <a class="btn btn-warning btn-xs set_en"> en</a>
+                        </li>
+                        <li>
+                            <a class="btn btn-danger btn-xs set_tr"> tr</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("logout","account")">
+                                <i class="fa fa-sign-out"></i> Log out
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            @RenderBody()
+            <div class="footer">
+                <div class="float-right">
+                    Ahmet Enes GURBUZ
+                </div>
+                <div>
+                    <strong>Copyright</strong> Example Company &copy; 2014-2018
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="~/userTemplate/js/jquery-3.1.1.min.js"></script>
+    <script src="~/userTemplate/js/popper.min.js"></script>
+    <script src="~/userTemplate/js/bootstrap.js"></script>
+    <script src="~/userTemplate/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/userTemplate/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="~/userTemplate/js/inspinia.js"></script>
+    <script src="~/userTemplate/js/plugins/pace/pace.min.js"></script>
+    <script src="~/userTemplate/js/plugins/i18next/i18next.min.js"></script>
+    <script>
+        $.i18n.init({
+            resGetPath: '/locals/__lng__.json',
+            load: 'unspecific',
+            fallbackLng: false,
+            lng: 'en'
+        }, function (t) {
+            $('.i18_links').i18n();
+        });
+
+        $('.set_en').on('click', function () {
+            i18n.setLng('en', function () {
+                $('.i18_links').i18n();
+            });
+        });
+
+        $('.set_tr').on('click', function () {
+            i18n.setLng('tr', function () {
+                $('.i18_links').i18n();
+            });
+        });
+    </script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>
