@@ -1,0 +1,30 @@
+﻿@using EvrakYonetimSistemi.Models
+@model List<Evrak>
+
+<br />
+<table class="table table-bordered">
+    <tr style="        background-color: black; color: white">
+        <th> ID</th>
+        <th> EVRAK ADI</th>
+        <th> TARİH</th>
+        <th> KONU</th>
+        <th> EVRAK TİPİ</th>
+        <th> SİL</th>
+        <th> GÜNCELLE</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td><a href="~/uploads/@x.Url" class="btn btn-link">@x.EvrakID</a></td>
+            <td>@x.Adi</td>
+            <td>@x.Tarih</td>
+            <td>@x.Konu</td>
+            <td>@x.EvrakTipi.TipAdi</td>
+            <td><a href="/Evrak/EvrakSil/@x.EvrakID" class="btn btn-link" style="color: #2c87f0">Sil</a></td>
+            <td><a href="/Evrak/EvrakGetir/@x.EvrakID" class="btn btn-link" style="color: #2c87f0">Güncelle</a></td>
+
+        </tr>
+    }
+</table>
+<a href="/Evrak/YeniEvrak/ " class="btn btn-success " style="background-color: black">Yeni Evrak</a>

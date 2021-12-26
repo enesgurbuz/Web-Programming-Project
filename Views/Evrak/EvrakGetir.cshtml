@@ -1,0 +1,28 @@
+﻿@model EvrakYonetimSistemi.Models.Evrak
+
+<br />
+@using (Html.BeginForm("EvrakGuncelle", "Evrak", FormMethod.Post))
+{
+    <b>Evrak ID</b>
+    @Html.TextBoxFor(x => x.EvrakID, new { @class = "form-control" })
+    <br />
+
+    <b>Evrak Adı</b>
+    @Html.TextBoxFor(x => x.Adi, new { @class = "form-control" })
+    <br />
+    <b>Evrak Tarihi</b>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @id = "datepicker"  })
+    <br />
+    <b>Konu</b>
+    @Html.TextBoxFor(x => x.Konu, new { @class = "form-control" })
+    <br />
+    <b>Tipi</b>
+    @Html.DropDownListFor(x => x.TipID, new SelectList((List<SelectListItem>)ViewData["EvrakTipleri"], "Value", "Text"), new { @class = "form-control" })
+
+    <br />
+    @*<input asp-for="Dosya" class="btn btn-default" />*@
+    <br />
+    <br />
+
+    <button type="submit" class="btn btn-success " style="background-color: black" >Evrak Güncelle</button>
+}
