@@ -1,0 +1,13 @@
+﻿@model EvrakYonetimSistemi.Models.EvrakTipi
+
+<br />
+@using (Html.BeginForm("TipGuncelle", "EvrakTipi", FormMethod.Post))
+{
+    <b>Tip ID</b>
+    @Html.TextBoxFor(x => x.TipID, new { @class = "form-control" })
+    <br />
+    <b>Tip Adı</b>
+    @Html.TextBoxFor(x => x.TipAdi, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success " style="background-color: black" >Tip Güncelle</button>
+}

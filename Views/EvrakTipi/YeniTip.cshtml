@@ -1,0 +1,10 @@
+﻿@model EvrakYonetimSistemi.Models.EvrakTipi
+
+    <br />
+<form class="form-group" method="post">
+
+    <b>Tip Adı</b>
+    @Html.TextBoxFor(x => x.TipAdi, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success " style="background-color: black">Tip Ekle</button>
+</form>

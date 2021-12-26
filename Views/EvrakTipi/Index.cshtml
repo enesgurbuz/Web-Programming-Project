@@ -1,0 +1,59 @@
+﻿@using EvrakYonetimSistemi.Models
+@model List<EvrakTipi>
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Evrak Tipleri</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("","")"><span data-i18n="Anasayfa"></span></a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Evrak Tipleri</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Evrak Tipleri</h5>
+                    <div class="ibox-tools">
+                        <a href="@Url.Action("YeniTip","EvrakTipi")" class="btn btn-success btn-xs">Yeni Tip Ekle</a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> ID</th>
+                                <th> Evrak Tipi</th>
+                                <th> Sil</th>
+                                <th> Güncelle</th>
+                                <th> Detaylar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                                <tr>
+                                    <td>GE2020.000.@x.TipID</td>
+                                    <td>@x.TipAdi</td>
+                                    <td><a href="/EvrakTipi/TipSil/@x.TipID" class="btn btn-link" style="color: #2c87f0">Sil</a></td>
+                                    <td><a href="/EvrakTipi/TipGetir/@x.TipID" class="btn btn-link" style="color: #2c87f0">Güncelle</a></td>
+                                    <td><a href="/EvrakTipi/TipDetay/@x.TipID" class="btn btn-link" style="color: #2c87f0">Detaylar</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
